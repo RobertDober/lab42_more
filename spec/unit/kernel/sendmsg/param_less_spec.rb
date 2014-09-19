@@ -9,9 +9,6 @@ describe Lab42::More do
       sendmsg :succ
     end
     context 'without parameters' do 
-      it 'returns a proc' do
-        expect(subject).to be_kind_of( Proc )
-      end
       it 'which sends the message to its first argument' do
         expect( subject.(41) ).to eq 42
       end

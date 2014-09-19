@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe More do 
-  context 'Enumerable Methods', :wip do
+  context 'Enumerable Methods' do
     context 'filter' do 
       context 'simple symbol' do 
         context 'empty' do 
