@@ -9,7 +9,7 @@ describe More::FunctionalEmancipation::InstanceFunctionProxy do
       end
     }
     subject do
-      mod.func
+      described_class.new mod
     end
 
     it 'gets the behavior' do
@@ -19,7 +19,7 @@ describe More::FunctionalEmancipation::InstanceFunctionProxy do
       expect( subject.subber ).to be_nil
     end
     it 'unless told so' do
-      expect{ mod.func!.subber }.to raise_error NameError, %r{undefined method `subber}
+      expect{ described_class.new( mod, raise_error: true ).subber }.to raise_error NameError, %r{undefined method `subber}
     end
 
   end # context 'modules'

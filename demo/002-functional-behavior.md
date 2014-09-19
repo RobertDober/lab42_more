@@ -36,6 +36,45 @@ Then the associated `Behavior` can also be accessed:
 
     Calculations.func.add.assert.kind_of? Behavior
     Calculations.func.add.(1,20){|r| r * 2 }.assert == 42
+    # We can however use a behavior for a more concise block
+    Calculations.func.add.(1,20,&B(:*, 2)).assert == 42
+```
+
+The proxies returned by the non bang version just return `nil` if the behavior does not exist, this is not the case
+for the bang versions, let us demonstrate
+
+```ruby
+    42.fn.does_not_exist.assert.nil?
+    NameError.assert.raised? do
+      42.fn!.does_not_exist
+    end
+```
+
+
+### Behavior Combination
+
+It is the foremost mean of expressing complex behavior in functional languages. Let us have a look at the most classic approach to do this...
+
+#### Functional Composition
+
+`(f * g)(a)` means `f(g(a))`
+
+This is not the most readable notation, as we are applying from right to left but implemented for completeness
+
+```ruby
+    adder = B(:+, 1)
+    doubler = B(:*, 2)
+    trippler = Behavior.new do |x| x * 3 end
+
+    (doubler * adder).(20).assert == 42
+```
+
+#### Functional Pipelining
+
+Here `(f | g)(a)` means `g(f(a))` and now the application order is like in a (unix shell) pipeline.
+
+```ruby
+    ( adder | doubler ).(20).assert == 42
 ```
 
 

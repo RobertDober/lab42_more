@@ -47,5 +47,13 @@ describe Behavior do
         expect( mod.fm.a.(:dummy, 1, 2, &:succ) ).to eq 4
       end
     end # context '(via fm)'
+    context '(via func)' do 
+      it 'or from a module' do
+        expect( mod.func.a ).to be_kind_of described_class
+        expect( mod.func.a.(1, 2, &:succ) ).to eq 4
+      end
+    end # context '(via func)'
   end # context 'from a module'
+
+    
 end

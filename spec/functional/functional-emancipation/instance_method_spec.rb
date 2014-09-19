@@ -13,7 +13,7 @@ describe More do
       
     end # context 'allows simple access to methods'
 
-    context 'allows simple access to methods (bang variation)' do 
+    context 'allows simple access to instance methods (bang variation)' do 
       subject do
         Fixnum.fm!.+
       end

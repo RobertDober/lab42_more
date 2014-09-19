@@ -4,6 +4,18 @@ class Behavior
   def call *a, &b; behavior.(*a, &b) end
   alias_method :to_proc, :behavior
 
+  def * other
+    self.class.new do |*a, &b|
+      self.(other.(*a, &b))
+    end
+  end
+
+  def | other
+    self.class.new do |*a, &b|
+      other.(self.(*a,&b))
+    end
+  end
+
   private
   def initialize behavior=nil, &blk
     @behavior = behavior || blk

@@ -8,7 +8,7 @@ describe More::FunctionalEmancipation::FunctionProxy do
     end
   }
   subject do
-    singleton.func
+    described_class.new singleton
   end
 
   it 'gets the behavior' do
@@ -18,7 +18,7 @@ describe More::FunctionalEmancipation::FunctionProxy do
     expect( subject.subber ).to be_nil
   end
   it 'unless told so' do
-    expect{ singleton.func!.subber }.to raise_error NameError, %r{undefined method `subber}
+    expect{ described_class.new( singleton, raise_error: true ).subber }.to raise_error NameError, %r{undefined method `subber}
   end
   
 

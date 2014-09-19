@@ -10,5 +10,8 @@ describe Behavior do
     it 'which does more or less what it was supposed to do' do
       expect( proc.() ).to eq 42
    end
+    it 'and can be used like a block' do
+      expect( [1,2].map(&proc) ).to eq [42,42]
+    end
   end # context '#to_proc, to serve block needing apis'
 end # describe Behavior
