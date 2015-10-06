@@ -5,8 +5,8 @@ version = Lab42::More::VERSION
 Gem::Specification.new do |s|
   s.name        = 'lab42_more'
   s.version     = version
-  s.summary     = 'Evolution and Replacement of the Ruby core library extension gem lab42_core'
-  s.description = %{Unification of Enumerable API, Concise Behavior, Functional Tools, Functional Emancipation}
+  s.summary     = 'Lab42 Core Extensions and More'
+  s.description = %{Unification of Enumerable API, Datastructures}
   s.authors     = ["Robert Dober"]
   s.email       = 'robert.dober@gmail.com'
   s.files       = Dir.glob("lib/**/*.rb")
