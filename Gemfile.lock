@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lab42_more (0.0.1.pre)
+    lab42_more (0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -48,3 +48,6 @@ DEPENDENCIES
   pry-nav (~> 0.2)
   qed (~> 2.9)
   rspec (~> 3.0)
+
+BUNDLED WITH
+   1.10.6
